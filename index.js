@@ -1,18 +1,21 @@
-const express = require("express");
-const app = express();
+const app = require("express")();
+const httpServer = require("http").createServer(app);
+const options = { /* ... */ };
+const io = require("socket.io")(httpServer, options);
 
-const http = require('http');
-const expressServer = http.createServer(app);
+io.on("connection",(socket)=>{
+    console.log('new user connected');
+    
+    socket.on("disconnect",()=>{
+        console.log('user disconnected')
+    })
+})
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + "/index.html")
 })
 
-
-
-
-
-expressServer.listen(5000,()=>{
+httpServer.listen(5000,()=>{
     console.log(
         `server 5000 is running`
     )
