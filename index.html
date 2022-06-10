@@ -8,19 +8,42 @@
 </head>
 <body>
 
-    <h1 id="time"></h1>
+    <!-- <h1 id="time"></h1> -->
+
+
+    <input id="textInput" type="text">
+    <button onclick="sendData()" type="button">send</button>
+
+
 
     <script src="./socket.io/socket.io.js"></script>
     <script>
         let socket = io();
+
+        // level 1
         // socket.on('message',(msg)=>{
         //     document.write(msg)
         // })
-        socket.on('message',(time)=>{
 
-            document.getElementById("time").innerHTML=time;
+// level 2
+        // socket.on('message',(time)=>{
+
+        //     document.getElementById("time").innerHTML=time;
             
-        })
+        // })
+
+
+        // level3
+        // send data from client to server
+
+        const sendData=()=>{
+          const val =  document.getElementById("textInput").value;
+
+          socket.send(val)
+
+        }
+
+
     </script>
 </body>
 </html>

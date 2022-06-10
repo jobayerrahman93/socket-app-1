@@ -12,15 +12,23 @@ io.on("connection",(socket)=>{
         
     // }, 4000);
 
-    // continously data send
-    setInterval(() => {
+    // level2
 
-        let date = new Date();
-       let time = date.getTime();
+    // continously data send
+    // setInterval(() => {
+
+    //     let date = new Date();
+    //    let time = date.getTime();
     
-        socket.send(time)
+    //     socket.send(time)
         
-    }, 500);
+    // }, 500);
+
+    // level3
+
+    socket.on('message',(msg)=>{
+        console.log(msg)
+    })
 
     socket.on("disconnect",()=>{
         console.log('user disconnected')
