@@ -6,10 +6,17 @@ const io = require("socket.io")(httpServer, options);
 io.on("connection",(socket)=>{
     console.log('new user connected');
     
+    setTimeout(() => {
+    
+        socket.send('you are connected to the server')
+        
+    }, 4000);
+
     socket.on("disconnect",()=>{
         console.log('user disconnected')
     })
-})
+});
+
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + "/index.html")
