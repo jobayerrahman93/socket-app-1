@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
 
-const port = process.env.PORT || 5000;
+const http = require('http');
+const expressServer = http.createServer(app);
+
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname + "/index.html")
+})
 
 
 
 
 
-
-
-app.listen(port,()=>{
+expressServer.listen(5000,()=>{
     console.log(
-        `server ${port} is running`
+        `server 5000 is running`
     )
 })
