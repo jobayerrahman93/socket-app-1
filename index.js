@@ -6,11 +6,21 @@ const io = require("socket.io")(httpServer, options);
 io.on("connection",(socket)=>{
     console.log('new user connected');
     
-    setTimeout(() => {
+    // setTimeout(() => {
     
-        socket.send('you are connected to the server')
+    //     socket.send('you are connected to the server')
         
-    }, 4000);
+    // }, 4000);
+
+    // continously data send
+    setInterval(() => {
+
+        let date = new Date();
+       let time = date.getTime();
+    
+        socket.send(time)
+        
+    }, 500);
 
     socket.on("disconnect",()=>{
         console.log('user disconnected')
