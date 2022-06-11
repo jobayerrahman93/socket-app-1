@@ -24,11 +24,15 @@ io.on("connection",(socket)=>{
         
     // }, 500);
 
-    // level3
+    // level3 get data from client
 
     socket.on('message',(msg)=>{
         console.log(msg)
-    })
+    });
+
+
+
+
 
     socket.on("disconnect",()=>{
         console.log('user disconnected')

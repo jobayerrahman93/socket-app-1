@@ -14,6 +14,8 @@
     <input id="textInput" type="text">
     <button onclick="sendData()" type="button">send</button>
 
+    <h1 id="broadcast"></h1>
+
 
 
     <script src="./socket.io/socket.io.js"></script>
@@ -42,6 +44,7 @@
           socket.send(val)
 
         }
+
 
 
     </script>
